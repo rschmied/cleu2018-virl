@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "building stuff..."
-return 0
+exit 0
