@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "building stuff..."
-exit 0
+echo "this build will fail..."
+exit 1
