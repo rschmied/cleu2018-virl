@@ -24,17 +24,13 @@ cd projects
 test -d LOGS && rm -rf LOGS
 mkdir LOGS
 
-set -x
 # run the sim for all sim test definitions
 status=0
 for file in $(find . -name \*.yml -type f); do
     echo "*** $file ***"
-    
     simname=$(basename -s .yml $file)
-    echo "***"$simname"***"
 
-    #virltester 2>&1 -l3 --nocolor $file | tee ${simname}.log
-    echo $file | tee ${simname}.log
+    virltester 2>&1 -l3 --nocolor $file | tee ${simname}.log
     if ! [ ${PIPESTATUS[0]} -eq 0 ]; then
         echo "FAILED"
         let status+=1
