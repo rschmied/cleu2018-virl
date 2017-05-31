@@ -23,34 +23,34 @@ config:
 
 sims:
 - topo: iosv-single-test.virl
-#  nodes:
-#  - lxc-1:
-#    - type: command
-#      transport: ssh
-#      sleep: 10
-#      in:
-#      #- ping -W1 -c1 10.0.0.10
-#      - ping -c5 10.0.0.10
-#      - ping -c5 10.0.0.10
-#      out:
-#      - \ 0% packet loss
-#  - lxc-2:
-#    - type: command
-#      transport: ssh
-#      in:
-#      - ping -W1 -c1 10.0.0.6
-#      - ping -c5 10.0.0.6
-#      out:
-#      - \ 0% packet loss
-#  - iosv-1:
-#    - type: command
-#      transport: telnet
-#      in:
-#      - term len 0
-#      - show version
-#      - conf t
-#      - hostname mychangedname
-#      - end
-#      - show run
-#      out:
-#      - ''
+  nodes:
+  - lxc-1:
+    - type: command
+      transport: ssh
+      sleep: 10
+      in:
+      #- ping -W1 -c1 10.0.0.10
+      - ping -c5 10.0.0.10
+      - ping -c5 10.0.0.10
+      out:
+      - \ 0% packet loss
+  - lxc-2:
+    - type: command
+      transport: ssh
+      in:
+      - ping -W1 -c1 10.0.0.6
+      - ping -c5 10.0.0.6
+      out:
+      - \ 0% packet loss
+  - iosv-1:
+    - type: command
+      transport: telnet
+      in:
+      - term len 0
+      - show version
+      - conf t
+      - hostname mychangedname
+      - end
+      - show run
+      out:
+      - ''
