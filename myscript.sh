@@ -11,7 +11,7 @@ ssh ${BUILD_HOST} '
 
 'VIRL_HOST=$(printenv VIRL_HOST)'
 'VIRL_PORT=$(printenv VIRL_PORT)'
-'VIRL_PORT=$(printenv VIRL_LXC_PORT)'
+'VIRL_LXC_PORT=$(printenv VIRL_LXC_PORT)'
 
 # activate the environment
 export VIRL_HOST
@@ -29,7 +29,10 @@ status=0
 for file in $(find . -name *.yml -type f); do
     echo "*** $file ***"
     virltester 2>&1 -l3 --nocolor $file | tee $(basename -s yml $file)log
-    test ${PIPESTATUS[0]} -eq 0 || ( echo "fail"; let status+=1 )
+    if ! [ ${PIPESTATUS[0]} -eq 0 ]; then
+        echo "fail"
+        let status+=1
+    fi
     echo "CODE: " $status
 done
 # move all log files into the artifacts dir
