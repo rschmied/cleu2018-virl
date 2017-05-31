@@ -20,13 +20,14 @@ test -d LOGS || mkdir LOGS
 rm LOGS/*
 
 # run the sim for all sim test definitions
-for v in $(find . -name "*.yml" -type f); do
-    virltester 2>&1 --nocolor "$v" | tee $(basename -s yml "$v")log
+for v in $(find . -name \"*.yml\" -type f); do
+    virltester 2>&1 --nocolor \"$v\" | tee $(basename -s yml \"$v\")log
 done
 
 # move all log files into the artifacts dir
 mv *.log LOGS
 "
+
 retcode=$?
 
 if [ $retcode -eq 0 ]; then
