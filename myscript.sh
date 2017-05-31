@@ -6,6 +6,7 @@ echo "building stuff..."
 echo "copying files to destination"
 scp 2>&1 -r projects/ ${BUILD_HOST}:
 
+printenv
 printenv VIRL_HOST
 printenv VIRL_PORT
 
