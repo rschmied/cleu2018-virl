@@ -28,15 +28,22 @@ rm LOGS/*
 status=0
 for file in $(find . -name *.yml -type f); do
     echo "*** $file ***"
-    virltester 2>&1 -l3 --nocolor $file | tee $(basename -s yml $file)log
+    
+    simname=$(basename -s .yml $file)
+
+    virltester 2>&1 -l3 --nocolor $file | tee ${simname}.log
     if ! [ ${PIPESTATUS[0]} -eq 0 ]; then
-        echo "fail"
+        echo "FAILED"
         let status+=1
     fi
     echo "CODE: " $status
+
+    # move all log files into the artifacts dir
+    echo "move files to logdir"
+    mkdir LOGS/$simname
+    mv *.log LOGS/$simname
+
 done
-# move all log files into the artifacts dir
-mv *.log LOGS/
 echo "FINAL code: " $status
 exit $status
 '
