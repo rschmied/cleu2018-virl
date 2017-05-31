@@ -19,6 +19,6 @@ virltester --help
 "
 
 echo "copying file back"
-scp -R ${BUILD_HOST}/${PROJECTS}/ .
+scp -r ${BUILD_HOST}/${PROJECTS}/ .
 
 exit 0
