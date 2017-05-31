@@ -21,8 +21,8 @@ source venv/bin/activate
 cd projects
 
 # create the log directory and empty it
-test -d LOGS || mkdir LOGS
-rm LOGS/*
+test -d LOGS && rm -rf LOGS/*
+mkdir LOGS
 
 # run the sim for all sim test definitions
 status=0
