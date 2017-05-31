@@ -6,11 +6,11 @@ echo "building stuff..."
 echo "copying files to destination"
 scp 2>&1 -r projects/ ${BUILD_HOST}:
 
-echo $VIRL_HOST
-echo $VIRL_PORT
+printenv VIRL_HOST
+printenv VIRL_PORT
 
-export VIRL_PORT
-export VIRL_HOST
+VIRL_PORT=$(printenv VIRL_HOST)
+VIRL_HOST=$(printenv VIRL_PORT)
 
 ssh ${BUILD_HOST} '
 
