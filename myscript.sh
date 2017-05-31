@@ -4,6 +4,8 @@ BUILD_HOST="rschmied@172.17.0.1"
 VIRL_HOST=""
 
 echo "building stuff..."
+ls -la
+env
 
 echo "copying files to destination"
 scp -r project/ ${BUILD_HOST}:
