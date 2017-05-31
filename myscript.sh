@@ -4,11 +4,11 @@ BUILD_HOST="rschmied@172.17.0.1"
 VIRL_HOST=""
 
 echo "building stuff..."
-ls -la
-env
+#ls -la
+#env
 
 echo "copying files to destination"
-scp -r project/ ${BUILD_HOST}:
+scp -r projects/ ${BUILD_HOST}:
 ssh ${BUILD_HOST} '
 source venv/bin/activate;
 cd project
@@ -17,6 +17,6 @@ virltester --help
 '
 
 echo "copying file back"
-scp -R ${BUILD_HOST}/project/ .
+scp -R ${BUILD_HOST}/projects/ .
 
 exit 0
