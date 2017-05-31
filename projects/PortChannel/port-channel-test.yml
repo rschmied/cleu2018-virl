@@ -48,7 +48,7 @@ config:
 
 
 sims:
-- topo: Topos/l2-portchannel-test.virl
+- topo: l2-portchannel-test.virl
   nodes:
   - lxc-1:
     - type: converge
