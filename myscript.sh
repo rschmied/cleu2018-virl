@@ -23,14 +23,17 @@ test -d LOGS || mkdir LOGS
 rm LOGS/*
 
 # run the sim for all sim test definitions
-#for file in ./*.yml
+status=0
 for file in $(find . -name *.yml -type f); do
     echo "*** $file ***"
     virltester 2>&1 --nocolor $file | tee $(basename -s yml $file)log
+    let status+=$?
+    echo "CODE: " $status
 done
 # move all log files into the artifacts dir
 mv *.log LOGS
-
+echo "FINAL code: " $status
+exit $status
 '
 
 
