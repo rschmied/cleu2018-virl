@@ -8,8 +8,9 @@
 #
 
 config:
-  # the VIRL host
+  # the VIRL host & port
   host: {{ env['VIRL_HOST'] or "localhost" }}
+  host: {{ env['VIRL_PORT'] or "localhost" }}
   # username and password
   user: {{ env['VIRL_USER'] or "guest" }}
   password: {{ env['VIRL_PASS'] or "guest" }}
