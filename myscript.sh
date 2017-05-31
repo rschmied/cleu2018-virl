@@ -15,7 +15,8 @@ source venv/bin/activate
 cd $PROJECTS
 mkdir LOGS
 touch LOGS/GAGA
-virltester --help
+virltester 2>&1 --nocolor --help | tee main.log 
+mv *.log LOGS
 "
 
 echo "copying file back"
