@@ -23,11 +23,10 @@ test -d LOGS || mkdir LOGS
 rm LOGS/*
 
 # run the sim for all sim test definitions
-#for v in \"$(find . -name *.yml -type f)\"; do
-echo "HOST:"$VIRL_HOST
-for file in ./*.yml
+#for file in ./*.yml
+for v in $(find . -name *.yml -type f); do
 do
-    echo \"[\"$file\"]\"
+    echo "*** $file ***"
     virltester 2>&1 --nocolor $file | tee $(basename -s yml $file)log
 done
 # move all log files into the artifacts dir
