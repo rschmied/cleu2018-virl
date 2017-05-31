@@ -24,6 +24,7 @@ cd projects
 test -d LOGS && rm -rf LOGS
 mkdir LOGS
 
+set -x
 # run the sim for all sim test definitions
 status=0
 for file in "$(find . -name *.yml -type f)"; do
