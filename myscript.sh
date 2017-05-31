@@ -6,19 +6,15 @@ echo "building stuff..."
 echo "copying files to destination"
 scp 2>&1 -r projects/ ${BUILD_HOST}:
 
-printenv
-printenv VIRL_HOST
-printenv VIRL_PORT
-
-VIRL_PORT=$(printenv VIRL_HOST)
-VIRL_HOST=$(printenv VIRL_PORT)
-
+echo "running the simulation(s)"
 ssh ${BUILD_HOST} '
 
-'VIRL_HOST=$VIRL_HOST'
-'VIRL_PORT=$VIRL_PORT'
+'VIRL_HOST=$(printenv VIRL_HOST)'
+'VIRL_PORT=$(printenv VIRL_PORT)'
 
 # activate the environment
+export VIRL_HOST
+export VIRL_PORT
 source venv/bin/activate
 cd projects
 
