@@ -20,14 +20,17 @@ test -d LOGS || mkdir LOGS
 rm LOGS/*
 
 for v in $(ls *.yml); do
-    virltester 2>&1 --nocolor ${v} | tee $(basename -s yml)log
+    virltester 2>&1 --nocolor ${v} | tee $(basename -s yml ${v})log
 done
 
 # move all log files into the artifacts dir
 mv *.log LOGS
 "
+retcode=$?
 
-echo "copying file back"
-scp -r ${BUILD_HOST}:${PROJECTS}/ .
+if [ $retcode -eq 0 ]; then
+    echo "copying file back"
+    scp -r ${BUILD_HOST}:${PROJECTS}/ .
+fi
 
-exit 0
+exit $retcode
