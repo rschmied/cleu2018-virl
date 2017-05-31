@@ -26,12 +26,12 @@ rm LOGS/*
 status=0
 for file in $(find . -name *.yml -type f); do
     echo "*** $file ***"
-    virltester 2>&1 --nocolor $file | tee $(basename -s yml $file)log
-    test ${PIPESTATUS[0]} -eq 0 || ( echo "fail" && let status+=1 )
+    virltester 2>&1 -l3 --nocolor $file | tee $(basename -s yml $file)log
+    test ${PIPESTATUS[0]} -eq 0 || ( echo "fail"; let status+=1 )
     echo "CODE: " $status
 done
 # move all log files into the artifacts dir
-mv *.log LOGS
+mv *.log LOGS/
 echo "FINAL code: " $status
 exit $status
 '
@@ -40,7 +40,7 @@ exit $status
 retcode=$?
 
 if [ $retcode -eq 0 ]; then
-    echo "copying file back"
+    echo "copying files back"
     scp -r ${BUILD_HOST}:projects/LOGS/ .
 fi
 
