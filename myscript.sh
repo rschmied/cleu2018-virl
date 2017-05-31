@@ -25,7 +25,6 @@ rm LOGS/*
 # run the sim for all sim test definitions
 #for file in ./*.yml
 for v in $(find . -name *.yml -type f); do
-do
     echo "*** $file ***"
     virltester 2>&1 --nocolor $file | tee $(basename -s yml $file)log
 done
