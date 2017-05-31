@@ -3,6 +3,10 @@
 BUILD_HOST="rschmied@172.17.0.1"
 
 echo "building stuff..."
+
+echo "erasing destination"
+ssh ${BUILD_HOST} 'rm -rf projects'
+
 echo "copying files to destination"
 scp 2>&1 -r projects/ ${BUILD_HOST}:
 
