@@ -8,8 +8,9 @@ scp 2>&1 -r projects/ ${BUILD_HOST}:
 
 
 ssh ${BUILD_HOST} '
-'VIRL_HOST=$VIRL_HOST
-VIRL_PORT=$VIRL_PORT'
+
+'VIRL_HOST=$VIRL_HOST'
+'VIRL_PORT=$VIRL_PORT'
 
 # activate the environment
 source venv/bin/activate
