@@ -10,8 +10,14 @@ scp 2>&1 -r projects/ ${BUILD_HOST}:
 
 echo "### updating VIRL files with configs"
 for virl in $(find . -name '*.virl'); do
-    echo "### Merging configs into $virl"
-    ./split_merge.py $(dirname $virl) $virl
+    virl_dir=$(dirname $virl)
+    if [[ "$(ls -t $virl_dir | head -1)" =~ \.virl$ ]]; then
+        echo "extracting configs in $virl_dir"
+        ./split_merge.py $virl $virl_dir
+    else
+        echo "merging configs in $virl_dir"
+        ./split_merge.py $virl_dir $virl
+    fi
 done
 
 echo "### running the simulation(s)"
