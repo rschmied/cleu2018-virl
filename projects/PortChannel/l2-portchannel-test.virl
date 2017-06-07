@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<topology xmlns="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.95" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.95/virl.xsd">
-    <extensions>
-        <entry key="management_network" type="String">user</entry>
-    </extensions>
-    <node name="iosvl2-1" type="SIMPLE" subtype="IOSvL2" location="634,327">
-        <extensions>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
-            <entry key="config" type="String">!
+<?xml version='1.0' encoding='UTF-8'?>
+<virl:topology xmlns:virl="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.95" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.95/virl.xsd">
+    <virl:extensions>
+        <virl:entry key="management_network" type="String">user</virl:entry>
+    </virl:extensions>
+    <virl:node location="634,327" name="iosvl2-1" subtype="IOSvL2" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+            <virl:entry key="AutoNetkit.mgmt_ip" type="string" />
+            <virl:entry key="config" type="String">!
 ! Last configuration change at 11:37:09 UTC Thu Mar 30 2017
 !
 version 15.2
@@ -195,21 +195,21 @@ line vty 0 4
  transport input telnet ssh
 !
 !
-end</entry>
-        </extensions>
-        <interface id="0" name="GigabitEthernet0/1"/>
-        <interface id="1" name="GigabitEthernet0/2"/>
-        <interface id="2" name="GigabitEthernet0/3"/>
-        <interface id="3" name="GigabitEthernet1/0"/>
-        <interface id="4" name="GigabitEthernet1/1"/>
-        <interface id="5" name="GigabitEthernet1/2"/>
-        <interface id="6" name="GigabitEthernet1/3"/>
-    </node>
-    <node name="iosvl2-2" type="SIMPLE" subtype="IOSvL2" location="818,328">
-        <extensions>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
-            <entry key="config" type="String">!
+end</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" name="GigabitEthernet0/1" />
+        <virl:interface id="1" name="GigabitEthernet0/2" />
+        <virl:interface id="2" name="GigabitEthernet0/3" />
+        <virl:interface id="3" name="GigabitEthernet1/0" />
+        <virl:interface id="4" name="GigabitEthernet1/1" />
+        <virl:interface id="5" name="GigabitEthernet1/2" />
+        <virl:interface id="6" name="GigabitEthernet1/3" />
+    </virl:node>
+    <virl:node location="818,328" name="iosvl2-2" subtype="IOSvL2" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+            <virl:entry key="AutoNetkit.mgmt_ip" type="string" />
+            <virl:entry key="config" type="String">!
 ! Last configuration change at 11:37:23 UTC Thu Mar 30 2017
 !
 version 15.2
@@ -397,19 +397,19 @@ line vty 0 4
  transport input telnet ssh
 !
 !
-end</entry>
-        </extensions>
-        <interface id="0" name="GigabitEthernet0/1"/>
-        <interface id="1" name="GigabitEthernet0/2"/>
-        <interface id="2" name="GigabitEthernet0/3"/>
-        <interface id="3" name="GigabitEthernet1/0"/>
-        <interface id="4" name="GigabitEthernet1/1"/>
-        <interface id="5" name="GigabitEthernet1/2"/>
-        <interface id="6" name="GigabitEthernet1/3"/>
-    </node>
-    <node name="lxc-1" type="SIMPLE" subtype="lxc" location="453,254">
-        <extensions>
-            <entry key="config" type="string">#cloud-config
+end</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" name="GigabitEthernet0/1" />
+        <virl:interface id="1" name="GigabitEthernet0/2" />
+        <virl:interface id="2" name="GigabitEthernet0/3" />
+        <virl:interface id="3" name="GigabitEthernet1/0" />
+        <virl:interface id="4" name="GigabitEthernet1/1" />
+        <virl:interface id="5" name="GigabitEthernet1/2" />
+        <virl:interface id="6" name="GigabitEthernet1/3" />
+    </virl:node>
+    <virl:node location="453,254" name="lxc-1" subtype="lxc" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="config" type="string">#cloud-config
 bootcmd:
 - ln -s -t /etc/rc.d /etc/rc.local
 hostname: lxc-1
@@ -449,18 +449,18 @@ write_files:
     #!/bin/sh
     ifconfig eth1 up 10.0.0.9 netmask 255.255.255.252
     exit 0
-</entry>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-        </extensions>
-        <interface id="0" name="eth1" ipv4="10.0.0.9" netPrefixLenV4="30">
-            <extensions>
-                <entry key="AutoNetkit.vlan" type="Integer">100</entry>
-            </extensions>
-        </interface>
-    </node>
-    <node name="lxc-2" type="SIMPLE" subtype="lxc" location="453,334">
-        <extensions>
-            <entry key="config" type="string">#cloud-config
+</virl:entry>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" ipv4="10.0.0.9" name="eth1" netPrefixLenV4="30">
+            <virl:extensions>
+                <virl:entry key="AutoNetkit.vlan" type="Integer">100</virl:entry>
+            </virl:extensions>
+        </virl:interface>
+    </virl:node>
+    <virl:node location="453,334" name="lxc-2" subtype="lxc" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="config" type="string">#cloud-config
 bootcmd:
 - ln -s -t /etc/rc.d /etc/rc.local
 hostname: lxc-2
@@ -500,18 +500,18 @@ write_files:
     #!/bin/sh
     ifconfig eth1 up 10.0.0.5 netmask 255.255.255.252
     exit 0
-</entry>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-        </extensions>
-        <interface id="0" name="eth1" ipv4="10.0.0.5" netPrefixLenV4="30">
-            <extensions>
-                <entry key="AutoNetkit.vlan" type="Integer">200</entry>
-            </extensions>
-        </interface>
-    </node>
-    <node name="lxc-3" type="SIMPLE" subtype="lxc" location="453,432">
-        <extensions>
-            <entry key="config" type="string">#cloud-config
+</virl:entry>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" ipv4="10.0.0.5" name="eth1" netPrefixLenV4="30">
+            <virl:extensions>
+                <virl:entry key="AutoNetkit.vlan" type="Integer">200</virl:entry>
+            </virl:extensions>
+        </virl:interface>
+    </virl:node>
+    <virl:node location="453,432" name="lxc-3" subtype="lxc" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="config" type="string">#cloud-config
 bootcmd:
 - ln -s -t /etc/rc.d /etc/rc.local
 hostname: lxc-3
@@ -551,18 +551,18 @@ write_files:
     #!/bin/sh
     ifconfig eth1 up 10.0.0.13 netmask 255.255.255.252
     exit 0
-</entry>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-        </extensions>
-        <interface id="0" name="eth1" ipv4="10.0.0.13" netPrefixLenV4="30">
-            <extensions>
-                <entry key="AutoNetkit.vlan" type="Integer">300</entry>
-            </extensions>
-        </interface>
-    </node>
-    <node name="lxc-4" type="SIMPLE" subtype="lxc" location="984,254">
-        <extensions>
-            <entry key="config" type="string">#cloud-config
+</virl:entry>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" ipv4="10.0.0.13" name="eth1" netPrefixLenV4="30">
+            <virl:extensions>
+                <virl:entry key="AutoNetkit.vlan" type="Integer">300</virl:entry>
+            </virl:extensions>
+        </virl:interface>
+    </virl:node>
+    <virl:node location="984,254" name="lxc-4" subtype="lxc" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="config" type="string">#cloud-config
 bootcmd:
 - ln -s -t /etc/rc.d /etc/rc.local
 hostname: lxc-4
@@ -602,18 +602,18 @@ write_files:
     #!/bin/sh
     ifconfig eth1 up 10.0.0.10 netmask 255.255.255.252
     exit 0
-</entry>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-        </extensions>
-        <interface id="0" name="eth1" ipv4="10.0.0.10" netPrefixLenV4="30">
-            <extensions>
-                <entry key="AutoNetkit.vlan" type="Integer">100</entry>
-            </extensions>
-        </interface>
-    </node>
-    <node name="lxc-5" type="SIMPLE" subtype="lxc" location="984,334">
-        <extensions>
-            <entry key="config" type="string">#cloud-config
+</virl:entry>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" ipv4="10.0.0.10" name="eth1" netPrefixLenV4="30">
+            <virl:extensions>
+                <virl:entry key="AutoNetkit.vlan" type="Integer">100</virl:entry>
+            </virl:extensions>
+        </virl:interface>
+    </virl:node>
+    <virl:node location="984,334" name="lxc-5" subtype="lxc" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="config" type="string">#cloud-config
 bootcmd:
 - ln -s -t /etc/rc.d /etc/rc.local
 hostname: lxc-5
@@ -653,18 +653,18 @@ write_files:
     #!/bin/sh
     ifconfig eth1 up 10.0.0.6 netmask 255.255.255.252
     exit 0
-</entry>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-        </extensions>
-        <interface id="0" name="eth1" ipv4="10.0.0.6" netPrefixLenV4="30">
-            <extensions>
-                <entry key="AutoNetkit.vlan" type="Integer">200</entry>
-            </extensions>
-        </interface>
-    </node>
-    <node name="lxc-6" type="SIMPLE" subtype="lxc" location="984,432">
-        <extensions>
-            <entry key="config" type="string">#cloud-config
+</virl:entry>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" ipv4="10.0.0.6" name="eth1" netPrefixLenV4="30">
+            <virl:extensions>
+                <virl:entry key="AutoNetkit.vlan" type="Integer">200</virl:entry>
+            </virl:extensions>
+        </virl:interface>
+    </virl:node>
+    <virl:node location="984,432" name="lxc-6" subtype="lxc" type="SIMPLE">
+        <virl:extensions>
+            <virl:entry key="config" type="string">#cloud-config
 bootcmd:
 - ln -s -t /etc/rc.d /etc/rc.local
 hostname: lxc-6
@@ -704,24 +704,24 @@ write_files:
     #!/bin/sh
     ifconfig eth1 up 10.0.0.14 netmask 255.255.255.252
     exit 0
-</entry>
-            <entry key="AutoNetkit.ASN" type="Integer">1</entry>
-        </extensions>
-        <interface id="0" name="eth1" ipv4="10.0.0.14" netPrefixLenV4="30">
-            <extensions>
-                <entry key="AutoNetkit.vlan" type="Integer">300</entry>
-            </extensions>
-        </interface>
-    </node>
-    <annotations/>
-    <connection dst="/virl:topology/virl:node[2]/virl:interface[2]" src="/virl:topology/virl:node[6]/virl:interface[1]"/>
-    <connection dst="/virl:topology/virl:node[1]/virl:interface[3]" src="/virl:topology/virl:node[4]/virl:interface[1]"/>
-    <connection dst="/virl:topology/virl:node[1]/virl:interface[5]" src="/virl:topology/virl:node[2]/virl:interface[5]"/>
-    <connection dst="/virl:topology/virl:node[1]/virl:interface[6]" src="/virl:topology/virl:node[2]/virl:interface[6]"/>
-    <connection dst="/virl:topology/virl:node[1]/virl:interface[7]" src="/virl:topology/virl:node[2]/virl:interface[7]"/>
-    <connection dst="/virl:topology/virl:node[1]/virl:interface[2]" src="/virl:topology/virl:node[3]/virl:interface[1]"/>
-    <connection dst="/virl:topology/virl:node[2]/virl:interface[3]" src="/virl:topology/virl:node[7]/virl:interface[1]"/>
-    <connection dst="/virl:topology/virl:node[1]/virl:interface[1]" src="/virl:topology/virl:node[5]/virl:interface[1]"/>
-    <connection dst="/virl:topology/virl:node[2]/virl:interface[1]" src="/virl:topology/virl:node[8]/virl:interface[1]"/>
-    <connection dst="/virl:topology/virl:node[2]/virl:interface[4]" src="/virl:topology/virl:node[1]/virl:interface[4]"/>
-</topology>
+</virl:entry>
+            <virl:entry key="AutoNetkit.ASN" type="Integer">1</virl:entry>
+        </virl:extensions>
+        <virl:interface id="0" ipv4="10.0.0.14" name="eth1" netPrefixLenV4="30">
+            <virl:extensions>
+                <virl:entry key="AutoNetkit.vlan" type="Integer">300</virl:entry>
+            </virl:extensions>
+        </virl:interface>
+    </virl:node>
+    <virl:annotations />
+    <virl:connection dst="/virl:topology/virl:node[2]/virl:interface[2]" src="/virl:topology/virl:node[6]/virl:interface[1]" />
+    <virl:connection dst="/virl:topology/virl:node[1]/virl:interface[3]" src="/virl:topology/virl:node[4]/virl:interface[1]" />
+    <virl:connection dst="/virl:topology/virl:node[1]/virl:interface[5]" src="/virl:topology/virl:node[2]/virl:interface[5]" />
+    <virl:connection dst="/virl:topology/virl:node[1]/virl:interface[6]" src="/virl:topology/virl:node[2]/virl:interface[6]" />
+    <virl:connection dst="/virl:topology/virl:node[1]/virl:interface[7]" src="/virl:topology/virl:node[2]/virl:interface[7]" />
+    <virl:connection dst="/virl:topology/virl:node[1]/virl:interface[2]" src="/virl:topology/virl:node[3]/virl:interface[1]" />
+    <virl:connection dst="/virl:topology/virl:node[2]/virl:interface[3]" src="/virl:topology/virl:node[7]/virl:interface[1]" />
+    <virl:connection dst="/virl:topology/virl:node[1]/virl:interface[1]" src="/virl:topology/virl:node[5]/virl:interface[1]" />
+    <virl:connection dst="/virl:topology/virl:node[2]/virl:interface[1]" src="/virl:topology/virl:node[8]/virl:interface[1]" />
+    <virl:connection dst="/virl:topology/virl:node[2]/virl:interface[4]" src="/virl:topology/virl:node[1]/virl:interface[4]" />
+</virl:topology>

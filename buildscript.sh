@@ -2,15 +2,19 @@
 
 BUILD_HOST="rschmied@172.17.0.1"
 
-echo "building stuff..."
-
-echo "erasing destination"
+echo "### erasing destination"
 ssh ${BUILD_HOST} 'rm -rf projects'
 
-echo "copying files to destination"
+echo "### copying files to destination"
 scp 2>&1 -r projects/ ${BUILD_HOST}:
 
-echo "running the simulation(s)"
+echo "### updating VIRL files with configs"
+for virl in $(find . -name '*.virl'); do
+    echo "### Merging configs into $virl"
+    ./split_merge.py $(dirname $virl) $virl
+done
+
+echo "### running the simulation(s)"
 ssh ${BUILD_HOST} '
 
 'VIRL_HOST=$(printenv VIRL_HOST)'
@@ -39,15 +43,15 @@ for file in $(find . -name \*.yml -type f); do
         echo "FAILED"
         let status+=1
     fi
-    echo "CODE: " $status
+    echo "### CODE: " $status
 
     # move all log files into the artifacts dir
-    echo "move files to logdir"
+    echo "### move files to logdir"
     mkdir LOGS/$simname
     mv *.log LOGS/$simname/
 
 done
-echo "FINAL code: " $status
+echo "### FINAL code: " $status
 exit $status
 '
 
@@ -55,7 +59,7 @@ exit $status
 retcode=$?
 
 if [ $retcode -eq 0 ]; then
-    echo "copying files back"
+    echo "### copying files back"
     scp -r ${BUILD_HOST}:projects/LOGS/ .
 fi
 
