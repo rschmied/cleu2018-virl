@@ -5,9 +5,6 @@ BUILD_HOST="rschmied@172.17.0.1"
 echo "### erasing destination"
 ssh ${BUILD_HOST} 'rm -rf projects'
 
-echo "### copying files to destination"
-scp 2>&1 -r projects/ ${BUILD_HOST}:
-
 echo "### updating VIRL files with configs"
 for virl in $(find . -name '*.virl'); do
     virl_dir=$(dirname $virl)
@@ -19,6 +16,9 @@ for virl in $(find . -name '*.virl'); do
         ./split_merge.py $virl_dir $virl
     fi
 done
+
+echo "### copying files to destination"
+scp 2>&1 -r projects/ ${BUILD_HOST}:
 
 echo "### running the simulation(s)"
 ssh ${BUILD_HOST} '
