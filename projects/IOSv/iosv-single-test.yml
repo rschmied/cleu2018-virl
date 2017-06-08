@@ -52,5 +52,7 @@ sims:
       - hostname mychangedname
       - end
       - show run
+      - show ip interface brief
+      - show ip route
       out:
       - ''
