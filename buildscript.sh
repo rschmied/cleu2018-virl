@@ -9,8 +9,9 @@ echo "### updating VIRL files with configs"
 for virl in $(find . -name '*.virl'); do
     virl_dir=$(dirname $virl)
     if [[ "$(ls -t $virl_dir | head -1)" =~ \.virl$ ]]; then
-        echo "extracting configs in $virl_dir"
-        ./split_merge.py -f $virl $virl_dir
+        echo "Warning: VIRL file is newer than configs!"
+        #echo "extracting configs in $virl_dir"
+        #./split_merge.py -f $virl $virl_dir
     else
         echo "merging configs in $virl_dir"
         ./split_merge.py $virl_dir $virl
