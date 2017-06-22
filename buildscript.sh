@@ -24,8 +24,8 @@ scp 2>&1 -r projects/ ${BUILD_HOST}:
 echo "### running the simulation(s)"
 ssh ${BUILD_HOST} '
 
-'VIRL_HOST=$(printenv VIRL_STD_HOST)'
-'VIRL_PORT=$(printenv VIRL_STD_PORT)'
+'VIRL_STD_HOST=$(printenv VIRL_STD_HOST)'
+'VIRL_STD_PORT=$(printenv VIRL_STD_PORT)'
 'VIRL_LXC_PORT=$(printenv VIRL_LXC_PORT)'
 'VIRL_LXC_HOST=$(printenv VIRL_LXC_HOST)'
 
