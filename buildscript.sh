@@ -27,11 +27,13 @@ ssh ${BUILD_HOST} '
 'VIRL_HOST=$(printenv VIRL_HOST)'
 'VIRL_PORT=$(printenv VIRL_PORT)'
 'VIRL_LXC_PORT=$(printenv VIRL_LXC_PORT)'
+'VIRL_LXC_HOST=$(printenv VIRL_LXC_HOST)'
 
 # activate the environment
 export VIRL_HOST
 export VIRL_PORT
 export VIRL_LXC_PORT
+export VIRL_LXC_HOST
 source venv/bin/activate
 cd projects
 
