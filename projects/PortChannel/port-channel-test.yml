@@ -62,7 +62,6 @@ sims:
     - type: command
       transport: ssh
       in:
-      - ping -W1 -c1 10.0.0.10
       - ping -c5 10.0.0.10
       out:
       - \ 0% packet loss
@@ -70,7 +69,6 @@ sims:
     - type: command
       transport: ssh
       in:
-      - ping -W1 -c1 10.0.0.6
       - ping -c5 10.0.0.6
       out:
       - \ 0% packet loss
@@ -78,13 +76,13 @@ sims:
     - type: command
       transport: ssh
       in:
-      - ping -W1 -c1 10.0.0.14
       - ping -c5 10.0.0.14
       out:
       - \ 0% packet loss
   - iosvl2-1:
     - type: command
       transport: telnet
+      sleep: 10
       in:
       - term len 0
       - 'show cdp neighbor'
