@@ -12,10 +12,9 @@ for virl in $(find . -name '*.virl'); do
         echo "Warning: VIRL file is newer than configs!"
         #echo "extracting configs in $virl_dir"
         #./split_merge.py -f $virl $virl_dir
-    else
-        echo "merging configs in $virl_dir"
-        ./split_merge.py $virl_dir $virl
     fi
+    echo "merging configs in $virl_dir"
+    ./split_merge.py $virl_dir $virl
 done
 
 echo "### copying files to destination"
