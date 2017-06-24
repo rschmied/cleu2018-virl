@@ -48,6 +48,7 @@ sims:
       in:
       - term len 0
       - show version
+      - show run
       - conf t
       - hostname mychangedname
       - end
