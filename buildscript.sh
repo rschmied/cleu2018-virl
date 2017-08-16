@@ -25,10 +25,14 @@ ssh ${BUILD_HOST} '
 
 'VIRL_STD_HOST=$(printenv VIRL_STD_HOST)'
 'VIRL_STD_PORT=$(printenv VIRL_STD_PORT)'
+'VIRL_USER=$(printenv VIRL_USER)'
+'VIRL_PASS=$(printenv VIRL_PASS)'
 'VIRL_LXC_PORT=$(printenv VIRL_LXC_PORT)'
 'VIRL_LXC_HOST=$(printenv VIRL_LXC_HOST)'
 
 # activate the environment
+export VIRL_USER
+export VIRL_PASS
 export VIRL_STD_HOST
 export VIRL_STD_PORT
 export VIRL_LXC_PORT
