@@ -24,7 +24,8 @@ config:
 sims:
 - topo: iosv-single-test.virl
   nodes:
-  - lxc-1:
+  - name: lxc-1
+    actions:
     - type: command
       transport: ssh
       sleep: 10
@@ -34,7 +35,8 @@ sims:
       - ping -c5 10.0.0.10
       out:
       - \ 0% packet loss
-  - lxc-2:
+  - name: lxc-2
+    actions:
     - type: command
       transport: ssh
       in:
@@ -42,7 +44,8 @@ sims:
       - ping -c5 10.0.0.6
       out:
       - \ 0% packet loss
-  - iosv-1:
+  - name: iosv-1
+    actions:
     - type: command
       transport: telnet
       in:

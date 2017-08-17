@@ -50,7 +50,8 @@ config:
 sims:
 - topo: l2-portchannel-test.virl
   nodes:
-  - lxc-1:
+  - name: lxc-1
+    actions:
     - type: converge
       transport: ssh
       sleep: 30
@@ -65,21 +66,24 @@ sims:
       - ping -c5 10.0.0.10
       out:
       - \ 0% packet loss
-  - lxc-2:
+  - name: lxc-2
+    actions:
     - type: command
       transport: ssh
       in:
       - ping -c5 10.0.0.6
       out:
       - \ 0% packet loss
-  - lxc-3:
+  - name: lxc-3
+    actions:
     - type: command
       transport: ssh
       in:
       - ping -c5 10.0.0.14
       out:
       - \ 0% packet loss
-  - iosvl2-1:
+  - name: iosvl2-1:
+    actions:
     - type: command
       transport: telnet
       sleep: 10
@@ -90,7 +94,8 @@ sims:
       out:
       # - 'Total cdp entries displayed : 4'
       - 'Number of lines which match regexp = 4'
-  - iosvl2-1:
+  - name: iosvl2-1
+    actions:
     - type: command
       transport: telnet
       in:
