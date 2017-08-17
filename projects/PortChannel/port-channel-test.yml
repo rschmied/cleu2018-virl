@@ -82,7 +82,7 @@ sims:
       - ping -c5 10.0.0.14
       out:
       - \ 0% packet loss
-  - name: iosvl2-1:
+  - name: iosvl2-1
     actions:
     - type: command
       transport: telnet
